@@ -39,6 +39,7 @@ void Preprocessor::preprocess()
     List<String> args = mSource.toCommandLine(SourceFlags);
     args.append("-E");
 
+    error() << mSource.compiler() << String::join(args, " ");
     mProcess->start(mSource.compiler(), args);
 }
 
